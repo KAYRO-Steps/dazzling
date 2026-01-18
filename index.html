@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قلم تبييض الأسنان</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Ajout de Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f6f5f5;
+            padding-bottom: 70px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .pulse {
+            animation: pulse 1.2s infinite;
+        }
+        
+        /* Gallery Styles */
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        #mainImage {
+            max-width: 450px;
+            width: 100%;
+            height: 450px;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .thumbnail {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        
+        
+        
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Radio Quantity Styles - vertical */
+        .quantity-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .quantity-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .quantity-option:hover {
+            border-color: #e88f97;
+            background-color: #f9fafb;
+        }
+        
+        .quantity-radio {
+            margin-left: 10px;
+            width: 18px;
+            height: 18px;
+            accent-color: #e34e5b;
+        }
+        
+        .quantity-label {
+            flex-grow: 1;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .quantity-price {
+            font-weight: bold;
+            color: #e34e5b;
+            margin-right: 10px;
+        }
+        
+        .quantity-option.selected {
+            border-color: #58a5f1;
+            background-color: #f0f4f9;
+        }
+        
+        /* Delivery Options */
+        .delivery-option {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15px;
+            background: white;
+        }
+        
+        .delivery-option:hover {
+            border-color: #e88f97;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .delivery-option.selected {
+            border-color:#3b82f6;
+            background-color: #eff6ff;
+        }
+        
+        /* Price Summary */
+        .price-summary {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .price-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 18px;
+            color: #e34e5b;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            #mainImage {
+                height: 300px;
+            }
+            
+            .thumbnail {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .quantity-option {
+                padding: 10px 12px;
+            }
+        }
+       @keyframes pulse1s {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(31, 64, 231, 0.6);
+    }
+    70% {
+        transform: scale(1.08);
+        box-shadow: 0 0 0 15px rgba(225, 29, 72, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
+    }
+}
+
+.pulse-1s {
+    animation: pulse1s 1s infinite;
+} 
+.quantity-radio {
+    display: none;
+}
+@keyframes bounce-soft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.bounce-soft {
+  animation: bounce-soft 0.6s infinite;
+}
+
+    </style>
+
+
+
+
+
+
+
+</head>
+<body class="from-pink-100 to-pink-50 text-gray-800">
+    <!-- Header Component -->
+     <header class="bg-gradient-to-r from-blue-500 to-blue-400 py-3 px-4 shadow-lg fade-in">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between">
+                
+                <!-- Logo à GAUCHE -->
+                <div class="flex items-center">
+                    <img src="img/logo.png" alt="Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-lg">
+                </div>
+    
+                <!-- Titre principal au MILIEU -->
+                <div class="text-center flex-1 mx-2 md:mx-4">
+                    <h1 class="text-xl md:text-3xl font-bold text-white">Filyna Shop</h1>
+                    <p class="text-blue-100 text-xs md:text-sm mt-1">جودة · راحة · أناقة</p>
+                </div>
+    
+                <!-- Bouton à DROITE -->
+                <div class="flex items-center">
+                    <a href="https://kayro-steps.github.io/KAYRO-Steps/" 
+                       class="bg-white/20 hover:bg-white/30 text-white px-2 py-1 md:px-4 md:py-2 rounded-lg transition duration-300 flex items-center space-x-2 space-x-reverse text-sm md:text-base">
+                        <i class="fas fa-store text-xs md:text-base"></i>
+                        <span>المتجر</span>
+                    </a>
+                </div>
+    
+            </div>
+        </div>
+    </header>
+<div class="bg-black text-white text-center py-2 text-sm md:text-base tracking-wide font-medium">
+    🚚 توصيل سريع وآمن إلى 69 ولاية
+</div>
+
+    <header>
+       
+            <section class="bg-gray-100 p-0 m-0">
+  
+  <div class="w-full flex flex-col items-center">
+
+    
+
+  </div>
+
+    
+         
+         
+         <img src="img/page.png"
+         class="block w-full max-w-3xl mx-auto object-contain">
+         <img src="img/page2.png"
+         class="block w-full max-w-3xl mx-auto object-contain">
+         <img src="img/Capture d’écran 2026-01-12 162600.jpg"
+              class="block w-full max-w-3xl mx-auto object-contain">
+
+    <img src="img/Capture d’écran 2026-01-12 162709.jpg"
+         class="block w-full max-w-3xl mx-auto object-contain">
+    <img src="img/promotion3.png"
+         class="block w-full max-w-3xl mx-auto object-contain">
+
+   
+
+</section>
+
+
+ 
+
+
+
+           
+
+    </header>
+
+   
+
+    
+
+    
+
+    <!-- Order Form Section -->
+    <section id="order" class="py-12 px-4 md:px-8 bg-white">
+        <div class="max-w-4xl mx-auto">
+            
+            
+            <form id="orderForm" class="bg-white rounded-2xl p-6 md:p-8 shadow-md">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- Order Details -->
+                    <div class="md:col-span-2">
+                        <h3 class="text-xl font-bold text-rose-700 mb-4 border-b-2 border-rose-200 pb-2">تفاصيل الطلبية</h3>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-3">الكمية *</label>
+                            <div id="quantityOptions" class="quantity-container">
+                                <!-- Radio buttons will be generated here -->
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Personal Info -->
+                    <div class="md:col-span-2">
+                        <h3 class="text-xl font-bold text-rose-700 mb-4 border-b-2 border-rose-200 pb-2">المعلومات الشخصية</h3>
+                    </div>
+                    
+                    <div>
+                        <label for="fullName" class="block text-gray-700 font-medium mb-2">الاسم الكامل *</label>
+                        <input type="text" id="fullName" name="fullName" required class="w-full px-4 py-2 border border-gray-400 rounded-lg focus:ring-2 focus:ring-rose-300 focus:border-rose-300">
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-gray-700 font-medium mb-2">رقم الهاتف *</label>
+                        <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border border-gray-400 rounded-lg focus:ring-2 focus:ring-rose-300 focus:border-rose-300">
+                    </div>
+                    
+                    
+                    
+                    <!-- Delivery Type -->
+                    <div class="mb-6 md:col-span-2">
+                        <h3 class="text-lg font-semibold mb-3">طريقة التوصيل *</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">
+                            <label class="delivery-option selected" id="homeDeliveryLabel">
+                                <input type="radio" name="deliveryType" value="home" class="hidden" onchange="toggleAddressFields()" checked>
+                                <div class="flex flex-col items-center text-center">
+                                    <i class="fas fa-home text-2xl text-green-600 mb-2"></i>
+                                    <div class="font-bold text-green-700 text-[15px] md:text-base whitespace-nowrap">التوصيل إلى المنزل</div>
+                                    <div class="text-sm text-gray-600 mt-1" id="homeDeliveryPrice">+200 دج</div>
+                                </div>
+                            </label>
+                            
+                            <label class="delivery-option" id="deskDeliveryLabel">
+                                <input type="radio" name="deliveryType" value="desk" class="hidden" onchange="toggleAddressFields()">
+                                <div class="flex flex-col items-center text-center">
+                                    <i class="fas fa-building text-2xl text-blue-600 mb-2"></i>
+                                    <div class="font-bold text-blue-700 text-[15px] md:text-base whitespace-nowrap">التوصيل إلى المكتب</div>
+                                    <div class="text-sm text-gray-600 mt-1" id="deskDeliveryPrice">+100 دج</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Address Fields (auto-displayed because home delivery is selected by default) -->
+                    <div class="md:col-span-2">
+                        <div id="addressFields">
+                            <h3 class="text-xl font-bold text-rose-700 mb-4 border-b-2 border-rose-200 pb-2">عنوان التوصيل</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="wilaya" class="block text-gray-700 font-medium mb-2">الولاية *</label>
+                                    <select id="wilaya" name="wilaya" required class="w-full px-4 py-2 border border-gray-400 rounded-lg focus:ring-2 focus:ring-rose-300 focus:border-rose-300" onchange="updateDeliveryPricesByWilaya()">
+                                        <option value="" disabled selected>اختر ولايتك</option>
+                                        <!-- Will be filled by JavaScript -->
+                                    </select>
+                                </div>
+                                
+                                <div id="communeField">
+                                    <label for="commune" class="block text-gray-700 font-medium mb-2">البلدية *</label>
+                                    <select id="commune" name="commune" class="w-full px-4 py-2 border border-gray-400 rounded-lg focus:ring-2 focus:ring-rose-300 focus:border-rose-300">
+                                        <option value="" disabled selected>اختر بلديتك</option>
+                                        <!-- Will be filled by JavaScript -->
+                                    </select>
+                                </div>
+                                
+                                <div id="addressField" class="md:col-span-2">
+                                    <label for="address" class="block text-gray-700 font-medium mb-2">العنوان بالتفصيل (المنزل، الشارع، الحي) *</label>
+                                    <textarea id="address" name="address" rows="2" required class="w-full px-4 py-2 border border-gray-400 rounded-lg focus:ring-2 focus:ring-rose-300 focus:border-rose-300"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Price Summary -->
+                    <div class="md:col-span-2">
+                        <div id="price-summary" class="price-summary">
+                            <div class="price-row">
+                                <span>سعر المنتج:</span>
+                                <span id="product-price">2900 دج</span>
+                            </div>
+                            <div class="price-row">
+                                <span>تكلفة التوصيل:</span>
+                                <span id="delivery-price">0 دج</span>
+                            </div>
+                            <div class="price-row">
+                                <span>المجموع:</span>
+                                <span id="total-price" class="text-lg font-bold text-rose-700">2900 دج</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+<div class="md:col-span-2 mt-4">
+    <button type="submit"  id="confirmOrder"
+        class="w-full bg-gray-700 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300 pulse-1s">
+        تأكيد الطلب <i data-feather="check-circle" class="inline ml-2"></i>
+    </button>
+</div>
+             </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+
+    <section class="mt-8 grid grid-cols-2 gap-8 text-center py-10 shadow-lg bg-gray-100 rounded-lg">
+        <!-- Paiement à la livraison -->
+        <div class="flex flex-col items-center gap-2">
+          <img src="img/الدفع عند الاستلام.png" class="w-16" alt="">
+          <span class="font-medium">الدفع عند الاستلام</span>
+        </div>
+      
+        <!-- Disponible 100% -->
+        <div class="flex flex-col items-center gap-2">
+          <img src="img/سعر مناسب.jpg" class="w-16" alt="">
+          <span class="font-medium">سعر مناسب</span>
+        </div>
+      
+        <!-- Service client -->
+        <div class="flex flex-col items-center gap-2">
+          <img src="img/livraison.jpg" class="w-16" alt="">
+          <span class="font-medium">توصيل سريع في 24 ساعة</span>
+        </div>
+      
+        <!-- Garantie 30 jours -->
+        <div class="flex flex-col items-center gap-2">
+          <img src="img/Capture d’écran 2025-10-21 153521.jpg" class="w-16" alt="">
+          <span class="font-medium">ضمان استرجاع في 3 أيام</span>
+        </div>
+      </section>
+      
+                            
+
+   
+
+  </div>
+</div>
+    </div>
+  </section>
+
+      
+
+
+
+
+   <!-- FAQ -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-dark mb-12">
+        أسئلة <span class="text-primary">شائعة</span>
+      </h2>
+  
+      <div class="max-w-3xl mx-auto">
+  
+        <div class="mb-6 border-b border-gray-200 pb-4">
+          <button class="faq-question flex justify-between items-center w-full text-right focus:outline-none">
+            <span class="font-bold text-lg">هل قلم تبييض الأسنان فعّال حقًا؟</span>
+            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer mt-2 text-gray-600 hidden">
+            <p>نعم، يحتوي قلم تبييض الأسنان على تركيبة قوية تساعد على إزالة البقع العنيدة الناتجة عن القهوة، التدخين والمشروبات الغازية، مع نتائج ملحوظة خلال فترة قصيرة من الاستخدام المنتظم.</p>
+          </div>
+        </div>
+  
+        <div class="mb-6 border-b border-gray-200 pb-4">
+          <button class="faq-question flex justify-between items-center w-full text-right focus:outline-none">
+            <span class="font-bold text-lg">هل القلم آمن على الأسنان واللثة؟</span>
+            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer mt-2 text-gray-600 hidden">
+            <p>بالتأكيد. القلم مزوّد بشعيرات ناعمة وتركيبة لطيفة لا تسبب تهيّجًا للأسنان أو اللثة، مما يجعله مناسبًا للاستخدام اليومي بكل أمان.</p>
+          </div>
+        </div>
+  
+        <div class="mb-6 border-b border-gray-200 pb-4">
+          <button class="faq-question flex justify-between items-center w-full text-right focus:outline-none">
+            <span class="font-bold text-lg">كيف أستخدم قلم تبييض الأسنان؟</span>
+            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer mt-2 text-gray-600 hidden">
+            <p>الاستخدام سهل جدًا، فقط قم بتدوير قاعدة القلم ليخرج الجل، ثم وزّعه مباشرة على الأسنان واتركه لبضع دقائق. يُنصح بالاستخدام مرة إلى مرتين يوميًا للحصول على أفضل النتائج.</p>
+          </div>
+        </div>
+  
+        <div class="mb-6 border-b border-gray-200 pb-4">
+          <button class="faq-question flex justify-between items-center w-full text-right focus:outline-none">
+            <span class="font-bold text-lg">متى يمكنني ملاحظة النتائج؟</span>
+            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer mt-2 text-gray-600 hidden">
+            <p>يمكن ملاحظة تحسّن في لون الأسنان خلال أيام قليلة من الاستخدام المنتظم، وتزداد فعالية التبييض مع الاستمرار في الاستعمال</p>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials / CTA -->
+<section class="py-16 bg-light">
+  
+  <div class="w-full px-4 flex justify-center">
+    
+    <div class="w-full max-w-4xl bg-gradient-to-r from-rose-600 to-rose-400 
+                text-white rounded-2xl p-6 shadow-xl">
+      
+      <div class="flex flex-col items-center text-center gap-6">
+        
+        <!-- Texte -->
+        <div>
+          <h3 class="font-extrabold text-2xl mb-2">
+            🔥 تخفيضات كبيرة على الأحذية!
+          </h3>
+          <p class="text-white/90 text-lg leading-relaxed">
+           ابتسامة ناصعة في أي وقت 😁  
+        ستيلو تبييض الأسنان يمنحك بياضًا ملحوظًا بسرعة  
+        آمن، سهل الاستعمال، ونتائج من أول استخدام  
+        عرض خاص لفترة محدودة 🔥
+          </p>
+        </div>
+
+        <!-- Bouton centré -->
+        <button id="order-btn"
+          class="bg-white text-rose-600 font-bold py-3 px-10 rounded-full
+                 hover:bg-gray-100 transition duration-300 text-lg shadow-md bounce-soft">
+          اطلب الآن
+        </button>
+
+      </div>
+      
+    </div>
+
+  </div>
+
+</section>
+
+
+    <section class="bg-gray-50 py-10 text-center rounded-lg shadow">
+        <div class="flex justify-center mb-4">
+          <div class="w-14 h-14 bg-white shadow rounded-full flex items-center justify-center">
+            <!-- Icône casque -->
+           <img src="img/لديك أسئلة أخرى؟.png" alt="">
+          </div>
+        </div>
+      
+        <h2 class="text-2xl font-bold mb-2">لديك أسئلة أخرى؟</h2>
+        <p class="text-gray-600 mb-6">
+          إذا مازلت تريد معلومات إضافية، يمكنك دائمًا الاتصال بنا.
+        </p>
+      
+        <a href="https://wa.me/213792690640"
+           class="inline-flex items-center gap-3 bg-black text-white px-6 py-3 rounded-lg text-lg hover:bg-gray-800">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-6 h-6">
+          تواصل معنا
+        </a>
+      </section>
+
+
+
+     <!-- Product Gallery -->
+<section class="py-12 bg-light">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-dark mb-10">
+        اكتشف <span class="text-primary">أحدث موديلاتنا</span>
+      </h2>
+  
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+  
+        
+  
+        <!-- GRID Produits -->
+<div class="grid grid-cols-2 gap-4 px-2">
+
+    <!-- === PRODUCT CARD 1 === -->
+    <a href="https://kayro-steps.github.io/zara-shoes/"
+       class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl tranية.sition-all duration-300">
+
+        <div class="relative bg-gray-100 p-2 flex items-center justify-center h-32">
+            <span class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">
+                %20 تخفيض
+            </span>
+            <img src="img/autre produit.jpg" class="w-full h-full object-contain">
+        </div>
+
+        <div class="p-2">
+            <h3 class="font-bold text-sm text-gray-900 mb-1 text-right">حذاء ZARA رجالي</h3>
+
+            <p class="text-gray-500 text-[11px] mb-2 text-right">
+                مظهر أنيق وراحة يومية عالية.
+            </p>
+
+            <div class="flex justify-between items-center">
+                <span class="text-blue-600 font-bold text-sm">2900 د.ج</span>
+                <span class="line-through text-gray-400 text-[11px]">3500 د.ج</span>
+            </div>
+        </div>
+    </a>
+
+    <!-- === PRODUCT CARD 2 === -->
+    <a href="https://kayro-steps.github.io/zara-shoes/"
+       class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
+
+        <div class="relative bg-gray-100 p-2 flex items-center justify-center h-32">
+            <span class="absolute top-2 left-2 bg-emerald-600 text-white text-[10px] font-bold px-2 py-1 rounded">
+                جديد
+            </span>
+            <img src="img/autre produit 2.jpg" class="w-full h-full object-contain">
+        </div>
+
+        <div class="p-2">
+            <h3 class="font-bold text-sm text-gray-900 mb-1 text-right">حذاء كلاسيكي</h3>
+
+            <p class="text-gray-500 text-[11px] mb-2 text-right">
+                تصميم فاخر مناسب للمناسبات والعمل.
+            </p>
+
+            <div class="flex justify-between items-center">
+                <span class="text-blue-600 font-bold text-sm">2900 د.ج</span>
+                <span class="line-through text-gray-400 text-[11px]">3500 د.ج</span>
+            </div>
+        </div>
+    </a>
+
+    <!-- === Ajoute AUTANT de produits que tu veux ici === -->
+</div>
+
+
+
+  
+       
+  
+      </div>
+    </div>
+  </section>
+
+      
+<div id="stickyOrderBtn"
+     class="fixed bottom-4 left-0 right-0 px-4 z-50 transition-opacity duration-300">
+
+    <a href="#order"
+       class="mx-auto
+              w-full max-w-xs
+              bg-gray-600 hover:bg-rose-700
+              text-white font-semibold text-sm
+              py-3
+              rounded-full shadow-xl
+              flex items-center justify-center
+              gap-2
+              pulse-1s
+              text-center">
+              
+        <i data-feather="shopping-bag" class="w-4 h-4"></i>
+        <span> أطلب لآن - الدفع عند الاستلام</span>
+    </a>
+</div>
+
+    
+
+    <!-- Footer -->
+<footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- About -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">ستيلو تبييض الأسنان</h3>
+                <p class="text-gray-400">
+                    ابتسامة أكثر إشراقًا بثقة  
+                    ستيلو تبييض الأسنان يمنحك نتائج سريعة، آمنة وسهلة الاستعمال.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">روابط سريعة</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="https://kayro-steps.github.io/KAYRO-Steps/" class="text-gray-400 hover:text-white">الصفحة الرئيسية</a>
+                    </li>
+                    <li>
+                        <a href="#order" class="text-gray-400 hover:text-white">اطلب الآن</a>
+                    </li>
+                    <li>
+                        <a href="#order" class="text-gray-400 hover:text-white">العروض والأسعار</a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/213792690640" class="text-gray-400 hover:text-white">اتصل بنا</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">تواصل معنا</h3>
+                <div class="flex space-x-4 space-x-reverse">
+                    <a href="https://www.facebook.com/profile.php?id=61586110067086"
+                       class="text-gray-400 hover:text-white text-xl">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/kayrosteps?igsh=MW1wYWx2a253N283ag=="
+                       class="text-gray-400 hover:text-white text-xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/213792690640"
+                       class="text-gray-400 hover:text-white text-xl">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+                <p class="text-gray-400 mt-4">البريد الإلكتروني: Filynashop@gmail.com</p>
+                <p class="text-gray-400">الهاتف: 0792690640</p>
+            </div>
+
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+            <p>© 2026 ستيلو تبييض الأسنان. جميع الحقوق محفوظة.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Include Components -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    
+    <script>
+        // CONFIGURATION DES PRIX
+const PRODUCT_PRICES = {
+    1: { old: 1500, new: 1300 },
+    2: { old: 3000, new: 2500 },
+    3: { old: 4500, new: 3600 },
+   
+};
+
+        
+        const FREE_DELIVERY_THRESHOLD = 2; // Livraison gratuite à partir de 2 pièces
+        
+        // Prix de livraison par défaut
+        const DEFAULT_DELIVERY_PRICES = { home: 0, desk: 0 };
+        
+        // Prix de livraison par wilaya (DOMICILE, BUREAU)
+        const DELIVERY_PRICES_BY_WILAYA = {
+            // Wilayas avec livraison standard
+            "الجزائر": { home: 700, desk: 550 },
+            "وهران": { home: 900, desk: 650 },
+            "قسنطينة": { home: 900, desk: 650 },
+            "عنابة": { home: 900, desk: 650 },
+            "باتنة": { home: 900, desk: 650 },
+            "بجاية": { home: 700, desk: 550 },
+            "سطيف": { home: 900, desk: 650 },
+            "الشلف": { home: 900, desk: 650 },
+            "البليدة": { home: 900, desk: 650 },
+            "تيزي وزو": { home: 590, desk: 450 },
+            "تلمسان": { home: 900, desk: 650 },
+            "الجلفة": { home: 950, desk: 750 },
+            "المدية": { home: 900, desk: 650 },
+            "البويرة": { home: 700, desk: 550 },
+            "تيارت": { home: 900, desk: 650 },
+            "غليزان": { home: 900, desk: 650 },
+            "سعيدة": { home: 900, desk: 650 },
+            "سيدي بلعباس": { home: 900, desk: 650 },
+            "مستغانم": { home: 900, desk: 650 },
+            "المسيلة": { home: 900, desk: 650 },
+            "معسكر": { home: 900, desk: 650 },
+            "ورقلة": { home: 950, desk: 750 },
+            "البيض": { home: 1050, desk: 850 },
+            "إليزي": { home: 1600, desk: 1400 },
+            "برج بوعريريج": { home: 900, desk: 650 },
+            "بومرداس": { home: 700, desk: 550 },
+            "الطارف": { home: 900, desk: 650 },
+            "تندوف": { home: 1600, desk: 1400 },
+            "تيسمسيلت": { home: 900, desk: 650 },
+            "الوادي": { home: 950, desk: 750 },
+            "خنشلة": { home: 900, desk: 650 },
+            "سوق أهراس": { home: 900, desk: 650 },
+            "تيبازة": { home: 900, desk: 650 },
+            "ميلة": { home: 900, desk: 650 },
+            "عين الدفلى": { home: 900, desk: 650 },
+            "النعامة": { home: 1050, desk: 850 },
+            "عين تموشنت": { home: 900, desk: 650 },
+            "غرداية": { home: 950, desk: 750 },
+            
+            // Wilayas éloignées
+            "أدرار": { home: 1050, desk: 850 },
+            "الأغواط": { home: 950, desk: 750 },
+            "أم البواقي": { home: 900, desk: 650 },
+            "بسكرة": { home: 950, desk: 750 },
+            "بشار": { home: 1050, desk: 850 },
+            "تمنراست": { home: 1600, desk: 1400 },
+            "تبسة": { home: 950, desk: 750 },
+            "جيجل": { home: 900, desk: 650 },
+            "سكيكدة": { home: 900, desk: 650 },
+            "قالمة": { home: 900, desk: 650 },
+            "تيميمون": { home: 1050, desk: 850 },
+            "برج باجي مختار": { home: 1050, desk: 850 },
+            "أولاد جلال": { home: 950, desk: 750 },
+            "بني عباس": { home: 1050, desk: 850 },
+            "عين صالح": { home: 1600, desk: 1400 },
+            "عين قزام": { home: 1600, desk: 1400 },
+            "تقرت": { home: 950, desk: 750 },
+            "جانت": { home: 1600, desk: 1400 },
+            "المغير": { home: 950, desk: 750 },
+            "المنيعة": { home: 950, desk: 750 },
+           "آفلو": { home: 950, desk: 750 },
+            "بريكة":{ home: 900, desk: 650 } ,
+            "قصر الشلالة": { home: 900, desk: 650 },
+            "مسعد": { home: 950, desk: 750 },
+            "عين وسارة": { home: 950, desk: 750 },
+            " بوسعادة": { home: 900, desk: 650 },
+            " الأبيض سيدي الشيخ": { home: 1050, desk: 850 },
+            "القنطرة": { home: 950, desk: 750 },
+            "بئر العاتر": { home: 950, desk: 750 },
+            " قصر البخاري": { home: 900, desk: 650 },
+            "العريشة": { home: 900, desk: 650 },
+        };
+
+        // Données des wilayas et communes d'Algérie
+        const algeriaData = {
+            "أدرار": ["أدرار", "تامست", " شروين", "رقان", " إن زغمير", "تيت", " قصر قدور", " تسابيت", " أولاد السعيد", "زاوية كنتة","أولف", "تيمقتن ", "تامنطيت", "فنوغيل", " تنركوك", "دلدول", " سالي", "أقبلي", "المطارفة", " أولاد أحمد تيمي", "بودة", "أوقروت", "طالمين", " برج باجي مختار", "السبع", "أولاد عيسى", " تيمياوين"],
+            "الشلف": ["الشلف", "تنس", "بنايرية", "الكريمية", "تاجنة", "تاوقريت", "بني حواء", "صبحة", "حرشون", "أولاد فارس", "سيدي عكاشة", "بوقادير", "بني راشد", "تلعصة", "الهرانفة", "وادى قوسين", "الظهرة", "أولاد عباس", "سنجاس", "الزبوجة", "وادي سلي", "أبو الحسن", "المرسى", "الشطية", "سيدي عبد الرحمان", "مصدق", "الحجاج", "الأبيض مجاجة", "وادي الفضة", "أولاد بن عبد القادر", "بوزغاية", "عين مران", "أم الذروع", "بريرة", "بني بوعتاب"],
+            "الأغواط": ["الأغواط", "قصر الحيران", "بن ناصر بن شهرة", "سيدي مخلوف", "حاسي الدلاعة", "حاسي الرمل", "عين ماضي", "تاجموت", "الخنق", "قلتة سيدي سعد", "عين سيدي علي", "البيضاء", "بريدة", "الغيشة", "الحاج المشري", "سبقاق", "تاويالة", "تاجرونة", "العسافية", "وادي مرة", "وادي مزي", "الحويطة", "سيدي بوزيد"],
+            "أم البواقي": ["أم البواقي", "عين البيضاء", "عين مليلة", "بحير شرقي", "العامرية", "سيقوس", "البلالة", "عين بابوش", "بريش", "أولاد حملة", "الضلعة", "عين كرشة", "هنشير تومغني", "الجازية", "عين الديس", "فكرينة", "سوق نعمان", "الزرق", "الفجوج بوغرارة سعودي", "أولاد زواي", "بئر الشهداء", "قصر الصبيحي", "وادي نيني", "مسكيانة", "عين فكرون", "الراحية", "عين الزيتون", "أولاد قاسم","الحرميلية"],
+            "باتنة": ["باتنة", "غسيرة ", " معافة", "مروانة", "سريانة", " منعة"," المعذر"," تازولت ","نقاوس"," القيقبة"," إينوغيسن","عيون العصافير"," جرمة"," بيطام","عزيل عبد القادر","آريس","كيمل "," تيلاطو","عين جاسر","أولاد سلام ","تيغرغار","عين ياقوت","سفيان"," فسديس"," الرحبات"," تيغانمين"," لمسان","قصر بلزمة","سقانة","إشمول","فم الطوب"," بني فضالة الحقانية","وادي الماء"," تالخمت","بوزينة"," الشمرة"," وادي الشعبة","تاكسلانت","القصبات","أولاد عوف"," بومقر"," بريكة"," الجزار","تكوت ","عين التوتة","حيدوسة","ثنية العابد","وادي الطاقة","أولاد فاضل","تيمقاد", "رأس العيون"," شير","أولاد سي سليمان"," زانة البيضاء","أمدوكال","أولاد عمار"," الحاسي","لازرو","بومية","بولهيلات","لارباع"],
+            "بجاية": ["بجاية","آدكار", "آغرام", "آيت أرزين", "آيت سماعيل", "أقبو", "أكفادو", "أمالو", "أميزور", "أوزلاقن", "أوقاس", "إغيل علي", "القصر", "برباشة", "بني جليل", "بني كسيلة", "بني معوش", "بني مليكش", "بوجليل", "بوحمزة", "بوخليفة", "تازمالت", "تاسكريوت", "تالة حمزة", "تامريجت", "تاوريرت آغيل", "تمقرة", "توجة", "تيزي أنبربار", "تيشي", "تيفرة", "تيمزريت", "تينبذار", "خراطة", "درقينة", "ذراع القايد", "سمعون", "سوق أوفلة", "سوق الاثنين", "سيدي عياد", "سيدي عيش", "شلاطة", "شميني", "صدوق", "طيبان", "فرعون", "فناية الماثن", "قلعة بني عباس", "كنديرة", "لفلاي", "مسيسنة", "ملبو", "وادي غير"],
+            "بسكرة": ["بسكرة", "أوماش","البرانيس","الحاجب","الحوش","الغلوس","الفيض","القنطرة","المزيرعة","برج بن عزوز","بوشقرون","جمورة","خنقة سيدي ناجي", "اورلال","زريبة الوادي","سيدي عقبة","شتمة","طولقة","عين الناقة","عين زعطوط","فوغالة","لوطاية","ليشانة","ليو","مخادمة","مشونش","مليلي"],
+            "بشار": ["بشار", "القنادسة","المريجة","بني ونيف","لحمر","موغل","بوكايس","تاغيت","العبادلة","عرق فراج","مشرع هواري بومدين","بني عباس","تامترت","إقلي","الواتة","كرزاز","بني يخلف","تيمودي","أولاد خضير","قصابي","تبلبالة"],
+            "البليدة": ["البليدة","الشبلي","بوينان","وادي العلايق","أولاد يعيش","الشريعة","العفرون","الشفة","حمام ملوان","بن خليل","الصومعة","موزاية","صوحان","مفتاح","أولاد سلامة", "بوفاريك","الأربعاء","وادي جر","بني تامو","بوعرفة", "بني مراد","بوقرة","قرواو","عين الرمانة","جبابرة"],
+            "البويرة": ["البويرة","عين بسام","عين العلوي","عين الحجر","بشلول","الأصنام","العجيبية","أهل القصر","أولاد راشد","بئر غبالو","الروراوة","الخبوزية","برج أوخريص","مسدور","تاقديت","الحجرة الزرقاء","عين الترك","آيت لعزيز","الهاشمية","وادي البردي","حيزر","تاغزوت","قادرية","عمر","الجباحية", "الأخضرية","بوكرام","معالة","بودربالة","الزبربر","قرومة","مشدا الله","الصھاريج","الشرفة","الحانيف","أغبالو","آث منصور","سوق الخميس","المقراني", "سور الغزلان","المعمورة","ريدان","الحاكمية","الدشمية","ديرة"],
+            "تمنراست": ["تمنراست","عين أمقل"," إدلس","عين صالح","فقارة الزوى", "عين قزام", "إينغر", "تاظروك", "أبلسة"," تين زواتين"],
+            "تبسة": ["تبسة","بئر العاتر","الشريعة","الونزة","الحمامات","الكويف","بوخضرة","مرسط","العقلة","الماء الأبيض","بكارية","نقرين","بئر مقدم"," المريج","أم علي","العوينات","بولحاف الدير","ثليجان","بئر الذهب","سطح قنطيس","صفصاف الوسرة","الحويجبات","المزرعة","بجن","فركان","قريقر","العقلة المالحة","عين الزرقاء",],
+            "تلمسان": ["تلمسان", "المنصورة","تيرني بني ھديل", "عين غرابة","بني مستار","شتوان","عين فزة","عمير","أولاد ميمون","الواد الأخضر","بني صميل","عين تالوت","عين نحالة","بن سكران","سيدي العبدلي","الرمشي","بني ورسوس","عين يوسف","السبعة شيوخ","الفحول","الحناية","زناتة","أولاد رياح","الغزوات","السواحلية","تيانت","دار يغمراسن","ندرومة","جبالة","فلاوسن","عين فتاح", "عين الكبيرة","مغنية","حمام بوغرارة","بني بوسعيد","سيدي مجاهد", "صبرة","بوحلو","سبدو","القور","العريشة", "سيدي الجيلالي", "البويهي","بني سنوس","العزايل","بني بهدل","باب العسة","السواني","سوق الثلاثاء","مرسى بن مهيدي", "مسيردة الفواقة", "هنين","بني خلاد"],
+            "تيارت": ["تيارت","بوقرة ","تاخمرت","تاقدمت","توسنينة","تيدة","جبيلة الرصفاء","جيلالي بن عمار","حمادية","دحموني","الرحوية","الرشايقة","زمالة الأمير عبد القادر","السبت","سبعين","سرغين","السوقر","سي عبد الغني","سيدي بختي","سيدي حسني","سيدي عبد الرحمان","سيدي علي ملال","شحيمة","عين الحديد","عين الذهب","عين بوشقيف","عين دزاريت","عين كرمس","الفايجة","فرندة","قرطوفة", "قصر الشلالة","مادنة", "مدروسة","مدريسة","مشرع الصفاء", "مغيلة","ملاكو","مهدية","الناظورة","النعيمة","وادي ليلي"],
+            "تيزي وزو": ["تيزي وزو","واسيف","أيت بومهدي","أيت تودرت","عين الحمام","أيت يحي","أقبيل","أبي يوسف","عزازقة","فريحة","زكري","إعكوران","إيفيغاء","بوغني","مشطراس","بونوح","أسي يوسف","ذراع الميزان","فريقات","عين الزاوية","أيت يحي موسى","واقنون","تيميزارت","آيت عيسى ميمون","الأربعاء نايث إيراثن","أيت قواشة","إرجن","أزفون","أقرو","أيت شفعة","أغريب","ذراع بن خدة","تادمايت","سيدي نعمان","تيرمتين","تيقزيرت","إفليسن","مزرانة", "بوزقن","إجر","إيلولة أمالو","بني زيكي","بني دوالة","أيت محمود","بني عيسي","بني زمنزر","واضية","أقني قغران","تيزي نثلاثة","أيت بوعدو", "معاتقة","سوق الاثنين","مقلع","أيت خليلي","الصوامع","بني يني","يطافن","إبودرارن","تيزي راشد","أيت أومالو","إيفرحونن","أمسوحال","إليلتن","تيزي غنيف","مكيرة","ماكودة","بوجيمة" ],
+            "الجزائر": ["الجزائر", "بوزريعة", "باب الواد", "برج البحري", "أولاد شبل", "أولاد فايت", "الأبيار", "الجزائر الوسطى", "الحامة - العناصر", "الحراش", "الحمامات", "الدار البيضاء", "الرايس حميدو", "الرحمانية", "الرغاية", "الرويبة", "السحاولة", "السويدانية", "الشراقة", "العاشور", "القبة", "القصبة", "الكاليتوس", "المحالمة", "المحمدية", "المدنية", "المرادية", "المرسى", "المقارية", "بئر توتة", "بئر خادم", "بئر مراد رايس", "باب الزوار", "بابا حسن", "باش جراح", "براقي", "برج الكيفان", "بن عكنون", "بني مسوس", "بوروبة", "بولوغين", "جسر قسنطينة", "حسين داي", "حيدرة", "خرايسية", "دالي إبراهيم", "دويرة", "زرالدة", "سطاوالي", "سيدي موسى", "عين البنيان", "عين طاية", "هراوة", "واد قريش", "وادي السمار", "تسالة المرجة", "قصبة الجزائر"],
+            "الجلفة": ["الجلفة", "أم الشقاق", "أم العظام", "الإدريسية", "الخميس", "القديد", "بن يعقوب", "بنھار", "بويرة الأحداب", "بيرين", "تعظميت", "حاسي العش", "حاسي بحبح", "حاسي فدول", "حد الصحاري", "دار الشيوخ", "دلدول", "دويس", "زعفران", "زكار", "سد الرحال", "سد رحال", "سلمانة", "سيدي بايزيد", "سيدي لعجال", "الشارف", "عمورة", "عين الابل", "عين الشهداء", "عين فقه", "عين معبد", "عين وسارة", "فرزول", "فيض البطمة", "قرنيني", "قطارة", "مجبارة", "مسعد", "مليليحة"],
+            "جيجل": ["جيجل", "أولاد رابح", "أولاد يحيى خدروش", "إيراقن", "الجمعة بني حبيبي", "السطارة", "الشحنة", "الشقفة", "العنصر", "العوانة", "الميلية", "برج الطهر", "بلدية الأمير عبد القادر", "بودريعة بن ياجيس", "بوراوي بلهادف", "بوسيف أولاد عسكر", "تاكسنة", "جيملة", "خيري وادي العجول", " العنصر", " الميلية", "زيامة منصورية", "سلمى بن زيادة", "سيدي عبد العزيز", "سيدي معروف", "الطاهير", "غبالة", "قاوس", "القنار", "وجانة"],
+            "سطيف": ["سطيف", "العلمة", "بازر الصخرة", "القلتة الزرقاء", "عين آزال", "عين الحجر", "بئر حدادة", "بيضاء برج", "عين ولمان", "قصر الأبطال", "قلال", "أولاد سي أحمد", "عين أرنات", "مزلوق", "عين عباسة", "الأوريسية", "عين الكبيرة", "دهامشة", "أولاد عدوان", "عموشة", "واد البارد", "تيزي نبشار", "بابور", "سرج الغول", "بني عزيز", "عين السبت", "معاوية", "بني ورتيلان", "بني شبانة", "بني محلي", "عين لقراج", "بئر العرش", "بلاعة", "الولجة", "تاشودة", "بوعنداس", "آيت نوال مزادة", "آيت تيزي", "بوسلام", "بوقاعة", "عين الروى", "بني حسين", "جميلة", "بني فودة", "قنزات", "حربيل", "قجال", "أولاد صابر", "حمام قرقور", "ذراع قبيلة", "حمام السخنة", "الطاية", "التلة", "ماوكلان", "تالة ايفاسن", "صالح باي", "بوطالب", "الحامة", "أولاد تبان", "الرصفة"],
+            "سعيدة": ["سعيدة", "أولاد براهيم","أولاد خالد","الحساسنة","تيرسين","ذوي ثابت","سيدي أحمد","سيدي عمر","سيدي بوبكر","عين الحجر","العين السخونة","عين سلطان","معمورة","مولاي لعربي","هونة", "يوب"],
+            "سكيكدة": ["سكيكدة", "أم الطوب","أمجاز الدشيش","أولاد أحبابة","أولاد عطية", "الحدائق","السبت","الشرايع","الكركرة","المرسى","الولجة بوالبلوط","بكوش لخضر", "بن عزوز","بني بشير","بني زيد","بني ولبان","بودوخة","بوشطاطة","بين الويدان","تمالوس","جندل ","الحروش","حمادي كرومة","خناق مايون","رمضان جمال","زردازة","زيتونة","سيدي مزغيش","صالح بوالشعور","عزابة","عين بوزيان","عين زويت","عين شرشار","عين قشرة","فلفلة", "القل","قنواع","لغدير","وادي الزهور"],
+            "سيدي بلعباس": ["سيدي بلعباس", "الحصيبة", "الضاية", "العمارنة", "المسيد", "بئر الحمام", "بدر الدين المقراني", "بلعربي", "بن باديس", "بن عشيبة شلية", "بوجبهة البرج", "بوخنيفيس", "تاودموت", "تسالة", "تغاليمت", "تفسور", "تلاغ", "تلموني", "تنيرة", "حاسي دحو", "حاسي زهانة", "راس الماء", "رجم دموش", "زروالة", "سفيزف", "سهالة ثاورة", "سيدي إبراهيم", "سيدي حمادوش", "سيدي خالد", "سيدي دحو الزائر", "سيدي شعيب", "سيدي علي بن يوب", "سيدي علي بوسيدي", "سيدي لحسن", "سيدي يعقوب", "شيطوان بليلة", "طابية", "عين أدان", "عين البرد", "عين الثريد", "عين تندامين", "عين قادة", "لمطار", "مرحوم", "مرين", "مزاورو", "مصطفى بن إبراهيم", "مقدرة", "مولاي سليسن", "واد السبع", "واد تاوريرة", "واد سفيون"],
+            "عنابة": ["عنابة", "برحال", "الحجار","العلمة","البوني","وادي العنب","الشرفة", "سرايدي","عين الباردة","شطايبي","سيدي عمار","تريعات"],
+            "قالمة": ["قالمة","الدهوارة","الركنية","الفجوج","برج صباط","بلخير","بن جراح","بني مزلين","بوحشانة","بوحمدان","بوشقوف","بوعاطي محمود","بومهرة أحمد","تاملوكة","جبالة لخميسي","حمام المسخوطين","حمام النبايل","حمام بلحشاني", "حمام دباغ","راس العقبة","سلاوة عنونة","عين العربي","عين بن بيضاء","عين رقادة","عين صندل", "عين مخلوف", "قلعة بوصبع","لخزارة","مجاز الصفاء","مجاز عمار","نشماية","هواري بومدين","هيليوبوليس", "وادي الزناتي","وادي الشحم","وادي فراغة"],
+            "قسنطينة": ["قسنطينة", "الخروب","عين سمارة","أولاد رحمون", "عين عبيد","ابن باديس", "زيغود يوسف","بني حميدان","حامة بوزيان","ديدوش مراد", "ابن زياد","مسعود بوجريو"],
+            "المدية": ["المدية", "أم الجليل", "أولاد إبراهيم", "أولاد بوعشرة", "أولاد دايد", "أولاد عنتر", "أولاد امعرف", "أولاد هلال", "بئر بن عابد", "البرواقية", "بعطة", "بن شكاو", "بني سليمان", "بوسكن", "بوشراحيل", "بوعيش", "بوعيشون", "تابلاط", "تفراوت", "تمسقيدة", "تيزي المهدي", "ثلاثة الدوائر", "جواب", "الحمدانية", "حناشة", "خمس جوامع", "دراق", "ذراع السمار", "الربعية", "الزبيرية", "السانق", "سدراية", "سغوان", "السواقي", "سي المحجوب", "سيدي الربيع", "سيدي دامد", "سيدي زهار", "سيدي زيان", "سيدي نعمان", "شلالة العذاورة", "شنيقل", "الشهبونية", "عزيز", "العزيزية", "العمارية", "العوينات", "العيساوية", "عين القصير", "عين بوسيف", "فج الحوضين", "قصر البخاري", "القلب الكبير", "الكاف الأخضر", "مجبر", "مزغنة", "مغراوة", "مفاتحة", "ميهوب", "وادي حربيل", "عوامري", "وزرة"],
+            "مستغانم": ["مستغانم","حاسي مميش","مزغران", "ستيدية","عين نويسي","الحسيان","فورناكة","سيدي بلطار","واد الخير", "سيدي علي","أولاد معلة","تازغيت","نكمارية", "خير الدين","عين بودنار","الصفصاف","عين تادلس","صور","بوقرات","صيرات","السوافلية","مسرى","عين سيدي الشريف","المنصورة","الطواهرية","الصيادة","عشعاشة","خضراء","أولاد بوغالم","سيدي الأخضر", "حجاج","عبد المالك رمضان"],
+            "المسيلة": ["المسيلة", "مقرة", "برهوم", "بلعايبة", "عين الخضراء", "الدهاهنة", "أولاد دراج", "معاضيد", "صوامع", "أولاد عدي لقبالة", "مطارفة", "حمام ضلعة", "تارمونت", "أولاد منصور", "ونوغة", "عين الحجل", "سيدي هجرس", "سيدي عيسى", "بوطي سايح", "بني يلمان", "شلال", "خطوطي سد الجير", "أولاد ماضي", "المعاريف", "خبانة", "الحومد", "مسيف", "مجدل", "مناعة ( أولاد عطية)", "بوسعادة", "هامل", "ولتام", "أولاد سيدي إبراهيم (ديس)", "بن زوه", "سيدي عامر", "تامسة", "بن سرور", "محمد بوضياف (واد شعير)", "زرزور", "أولاد سليمان", "عين الملح", "بئر فضة", "عين فارس", "سيدي امحمد", "عين الريش", "جبل مسعد ( عين غورب)", "سليم"],
+            "معسكر": ["معسكر", "البرج", "البنيان", "السحايلية", "الشرفة", "الصحاورية", "العلايمية", "الغمري", "القعدة", "القيطنة", "المامونية", "المحمدية", "المنور", "الهاشم", "بوحنيفية", "بوهني", "تيزي", "تيغنيف", "حسين", "خلوية", "دوار الملح", "رأس عين عميروش", "زلامطة", "زهانة", "سجرارة", "سيدي بوسعيد", "سيدي عبد الجبار", "سيدي عبد المؤمن", "سيدي قادة", "عقاز", "عوف", "عين افرص", "عين فارس", "عين فراح", "عين فكان", "غروس", "غريس", "فراقيق", "فروحة", "قرجوم", "القرط", "ماقضة", "ماوسة", "مطمور", "مقطع دوز", "نسموط", "وادي الأبطال", "وادي تاغية"],
+            "ورقلة": ["ورقلة", "الرويسات", "حاسي مسعود","تقرت","تبسبست","النزلة","الزاوية العابدية","تماسين","بلدة عمر","المقارين","أنقوسة"," سيدي خويلد", "عين البيضاء","حاسي بن عبد الله","البرمة","سيدي سليمان","الحجيرة"," العالية","الطيبات"," بن ناصر","المنقر", "النقوسة"],
+            "وهران": ["وهران", "أرزيو","العلايمية","الكرمة","الكرمة","بئر الجير","البرية","بن فريحة", "بطيوة","بوتليليس","بوسفر","بوفاطيس","حاسي بن عقبة","حاسي بونيف","حاسي مفسوخ","دوار الملح","السانية","سيدي الشحمي","سيدي بن يبقى","سيق","طفراوي","العنصر","عين البية","عين الكرمة", "عين الترك","قديل","مرسى الحجاج","المرسى الكبير","مسرغين","وادي تليلات"],
+            "البيض": ["البيض","أربوات","الأبيض سيدي الشيخ","البنود","الخيثر","الرقاصة","الشلالة","المحرة","بوسمغون", "بريزينة","بوعلام","بوقطب","توسمولين","ستيتن","سيدي سليمان","سيدي طيفور","سيدي عمر","شقيق","عين العراك", "الغاسول","كاف لحمر","كراكدة"],
+            "إليزي": ["إليزي","أوهانت","إحرر", "إن أميناس","برج الحواس","برج تارات", "جانت", "برج عمر إدريس","دبداب"],
+            "برج بوعريريج": ["برج بوعريريج","أولاد أبراهم","أولاد دحمان","أولاد سيدي إبراهيم", "الحمادية","العش","العناصر","القلة","القليعة","الماين","المهير","بئر قصد علي","برج الغدير","برج زمورة","عين تسرة","بليمور","بن داود","تسامرت","تفرق","تقلعيت","تكستار","ثنية النصر","جعافرة","حرازة","حسناوة","خليل", "رأس الوادي","الرابطة","سيدي امبارك","عين تاغروت","غيلاسة","القصور","مجانة", "المنصورة","الياشير"],
+            "بومرداس": ["بومرداس","أولاد عيسى","أولاد موسى","أولاد هداج","اعفير","الأربعطاش","الثنية","الخروبة","الناصرية","برج منايل", "بغلية","بن شود","بني عمران", "بودواو","بوزرقزق قدارة","تاورقة","تجلابين","تيمزريت","جنات","حمادي", "دلس", "خميس الخشنة","زموري","سوق الحد","سي مصطفى","سيدي داود","شعبة العامر","عمال","قورصو","لقاطة","يسر"],
+            "الطارف": ["الطارف","بحيرة الطيور","بريحان","البسباس", "بن مهيدي", "بوثلجة", "بوحجار","حمام بني صالح","الذرعان","رمل السوق","زريزر","الزيتونة","السوارخ","الشافية","شبيطة مختار","الشط","الشيحاني","عصفور","عين العسل","عين الكرمة","العيون", "القالة","واد الزيتون"],
+            "تندوف": ["تندوف", "أوم العساس"],
+            "تيسمسيلت": ["تيسمسيلت","أولاد بسام","الأربعاء","الأزهرية","العيون","المعاصم","الملعب","اليوسفية", "برج الأمير عبد القادر","برج بونعامة","بني شعيب","بني لحسن","بوقايد","تملاحت","ثنية الحد", "خميستي","سيدي العنتري","سيدي بوتشنت","سيدي سليمان","سيدي عابد","عماري", "لرجام",],
+            "الوادي": ["الوادي","أميه ونسة", "البياضة","الحمادين","الحمراية","الدبيلة","الرباح","الرقيبة","الطريفاوي","العقلة","المرزاقة","المقرن","النخلة","الوادي","بن قشة","تغزوت","تندلة", "حاسي خليفة","حساني عبد الكريم","دوار الماء","سيدي عون","طالب العربي","عين الشوشة", "قمار","كوينين","وادي العلندة","ورماس","وغلانة"],
+            "خنشلة": ["خنشلة","عين الطويلة", "بابار","بغاي","بوحمامة", "ششار","شلية","جلال", "الحامة","المحمل","الولجة","انسيغة","قايس","خيران","لمصارة","متوسة","أولاد رشاش","الرميلة","طامزة","تاوزيانت", "يابوس"],
+            "سوق أهراس": ["سوق أهراس","أم العظائم","أولاد إدريس","أولاد مؤمن","الحنانشة","الراقوبة","الزوابي","بئر بوحوش","تاورة","ترقالت","تيفاش", "الحدادة","الخضارة","خميسة","الدريعة","الزعرورية","سافل الويدان","سدراتة", "سيدي فرج","عين زانة","عين سلطان","مداوروش","المراهنة","المشروحة","وادي الكبريت","ويلان", "المحمل"],
+            "تيبازة": ["تيبازة","أغبال","الأرهاط","الداموس","الشعيبة","الناظور","بني ميلك","بو إسماعيل","بورقيقة","بوهارون","حجرة النص","حجوط","حطاطبة","حمر العين","خميستي", "دواودة","سيدي اعمر ","سيدي راشد","سيدي سميان","سيدي غيلاس", "شرشال","عين تقورايت", "فوكة","القليعة", "قوراية","مراد","مسلمون","مناصر"],
+            "ميلة": ["ميلة","أحمد راشدي","أولاد خلوف","التلاغمة","الرواشد","العياضي برباس","القرارم قوقة","المشيرة","بن يحيى عبد الرحمان","بوحاتم","تاجنانت","تبرقنت","ترعي باينان","تسالة لمطاعي","تسدان حدادة","حمالة","دراحي بوصلاح","رجاص","زغاية","سيدي خليفة ","سيدي مروان", "شلغوم العيد","الشيقارة","عميرة أراس","عين البيضاء حريش","عين التين","عين الملوك", "فرجيوة","مينار زارزة","وادي العثمانية","وادي النجاء","وادي سقان","يحيى بن قشة"],
+            "عين الدفلى": ["عين الدفلى","الحسنية","الروينة","العبادية","الماين ","المخاطرية","بئر ولد خليفة","بربوش","برج الأمير خالد","بطحية","بلعاص","بن علال","بوراشد","بومدفع","تسيلي","تيبركانين","جليدة","جمعة ولاد الشيخ","جندل","حمام ريغة","خميس مليانة","زدين","سيدي الأخضر","طارق بن زياد","العامرة","عريب","العطاف","عين بنيان","عين بويحيى","عين تركي","عين سلطان","عين لشياخ", "مليانة","واد الشرفاء","وادي الجمعة"],
+            "النعامة": ["النعامة","البيوض","القصدير ", "مشرية","تيوت","جنين بورزق","صفيصيفة","عسلة", "عين الصفراء","عين بن خليل", "مغرار","مكمن بن عمار"],
+            "عين تموشنت": ["عين تموشنت","آغلال","الأمير عبد القادر","الحساسنة","العامرية","المالح ","امسعيد","اولاد الكيحل", "أولاد بوجمعة", "بني صاف","بوزجار","تارقة","تامزوغة","حاسي الغلة", "حمام بوحجر","رشقون","سيدي أورياش","سيدي الصافي","سيدي بن عدة","سيدي بومدين","شعبة اللحم","شنتوف","عقب الليل","عين الأربعاء","عين الطلبة","عين الكيحل","وادي الصباح","وادي برقش","ولهاصة"],
+            "غرداية": ["غرداية","العطف","بريان","بونورة","حاسي الفحل","حاسي القارة ","زلفانة","سبسب", "ضاية بن ضحوة","القرارة","متليلي","المنصورة", "المنيعة"],
+            "غليزان": ["غليزان", " أولاد سيدي الميهوب", "أولاد يعيش", "الحمادنة", "الرمكة", "القطار", "القلعة", "المرجة", "المطمر", "الولجة", "بلعسل", "بن داود", "بني درقن", "بني زنطيس", "جديوية", "الحاسي", "حد الشكالة", "حمري", "دار بن عبد الله", "زمورة", "سوق الحد", "سيدي امحمد بن علي", "سيدي خطاب", "سيدي سعادة", "سيدي لزرق", "سيدي محمد بن عودة", "عمي موسى", "عين الرحمة", "عين طارق", "لحلاف", "مازونة", "مديونة", "منداس", "واد الجمعة", "واد السلام", "وادي ارهيو", "واريزان", "يلل"],
+            "تيميمون": ["تيميمون", "أوقروت","أولاد السعيد","المطارفة","تينركوك","دلدول","شروين","طالمين","قصر قدور","أولاد عيسى"],
+            "برج باجي مختار": ["برج باجي مختار","تيمياوين"],
+            "أولاد جلال": ["أولاد جلال","سيدي خالد","رأس الميعاد","البسباس","الشعيبة","الدوسن"],
+            "بني عباس": ["بني عباس","تبلبالة","إقلي","الواتة","كرزاز","أولاد خضير"," تامترت","بني يخلف","تيمودي"," وقصابي"],
+            "عين صالح": ["عين صالح","إن غار"," فقارة الزاوية"],
+            "عين قزام": ["عين قزام"," تين زاوتين"],
+            "تقرت": ["تقرت","بن ناصر","بلدة عمر","العالية","الحجيرة","مقارين","المنقر","النزلة","سيدي سليمان","الطيبات","تماسين","تبسبست","الزاوية العابدية"],
+            "جانت": ["جانت"," برج الحواس"],
+            "المغير": ["المغير","أم الطيور","جامعة","سيدي عمران","اسطيل","سيدي خليل","تندلة","المرارة"],
+            "المنيعة": ["المنيعة","حاسي القارة","المنصورة","حاسي الفحل"],
+            "آفلو": ["آفلو","قتلة سيدي سعد", "عين سيدي علي", "البيضاء", "بريدة", "الغيشة", "الحاج المشري", "سبقاق", "تاويالة", "وادي مرة", "وادي مزي", "سيدي بوزيد"],
+            "بريكة": ["بريكة","بيطام","أمدوكال","الجزار","عبد القادر عزيل"," أولاد عمار","سقانة","تيلاطو"],
+            "قصر الشلالة": ["قصر الشلالة","قصر الشلالة","زمالة الأمير عبد القادر","الرشايقة","الحمادية"," سرغين","بوقر"],
+            "مسعد": ["مسعد","دلدول"," سد رحال","سلمانة","قطارة"],
+            "عين وسارة": ["عين وسارة","بيرين","بويرة الأحدب","الخميس","سيدي لعجال","حد الصحاري","القرنيني","بن هار","حاسي فدول","عين فكة"],
+            " بوسعادة": ["بوسعادة","الهامل","أولتام","الحوامد","مسيف","عين الملح","بن سرور","مجدل"],
+            " الأبيض سيدي الشيخ": [" الأبيض سيدي الشيخ","أربوات","عين العراك","البنود"],
+            "القنطرة": ["القنطرة","عين زعطوط","البرانس","الوطاية","جمورة"],
+            "بئر العاتر": ["بئر العاتر","العقلة المالحة","نقرين","فركان"],
+            " قصر البخاري": ["قصر البخاري","عين بوسيف","عزيز","الشهبونية","بوغزول","أولاد عنتر","الشلالة العذاورة","سانق","المفاتحة"],
+            "العريشة": ["العريشة","القور","سيدي الجيلالي","البويهي"],
+        };
+
+        // Variables globales
+        let currentQuantity = 1;
+        let currentImageIndex = 0;
+        let selectedDeliveryType = "home"; // Par défaut: livraison à domicile
+        let selectedWilaya = null;
+       
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            initQuantityOptions();
+            initWilayas();
+            initDeliveryOptions();
+            updatePriceSummary();
+            updateThumbnails();
+            
+            // Initialiser les événements de swipe pour les images
+            initSwipeEvents();
+            
+            // Afficher les champs d'adresse initialement (car livraison à domicile est sélectionnée)
+            toggleAddressFields();
+        });
+
+        // Initialiser les options de quantité (radio buttons verticaux)
+        function initQuantityOptions() {
+            const container = document.getElementById('quantityOptions');
+            container.innerHTML = '';
+            
+            const quantityLabels = {
+                1: "1 قطعة",
+                2: "2 قطعتين + التوصيل مجاني",
+                3: "3 قطع - خصم 20% +التوصيل مجاني",
+               
+            };
+            
+            
+            for (let i = 1; i <= 3; i++) {
+                const option = document.createElement('div');
+                option.className = `quantity-option ${i === 1 ? 'selected' : ''}`;
+                option.id = `quantityOption${i}`;
+                
+                option.addEventListener('click', function() {
+                    // Retirer la classe selected de toutes les options
+                    document.querySelectorAll('.quantity-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    // Ajouter la classe selected à l'option cliquée
+                    this.classList.add('selected');
+                    currentQuantity = i;
+                    updatePriceSummary();
+                });
+                
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = 'quantity';
+                radio.value = i;
+                radio.className = 'quantity-radio';
+                radio.checked = i === 1;
+                radio.onclick = (e) => e.stopPropagation();
+                radio.onchange = () => {
+                    currentQuantity = i;
+                    updatePriceSummary();
+                };
+                
+                const label = document.createElement('span');
+                label.className = 'quantity-label text-xs md:text-sm text-gray-900';
+                label.textContent = quantityLabels[i];
+                
+                const price = document.createElement('span');
+                price.className = 'quantity-price';
+                price.textContent = `${PRODUCT_PRICES[i].toLocaleString()} دج`;
+                const prices = PRODUCT_PRICES[i];
+
+
+
+// Calcul du pourcentage de réduction
+const discount = Math.round(
+  ((prices.old - prices.new) / prices.old) * 100
+);
+
+price.innerHTML = `
+  <div class="flex items-center gap-3 whitespace-nowrap">
+    
+    <!-- Prix barré -->
+    <span class="line-through text-gray-400 text-sm whitespace-nowrap">
+      ${prices.old.toLocaleString()} دج
+    </span>
+    
+    <!-- Nouveau prix -->
+    <span class="text-rose-600 font-bold text-lg whitespace-nowrap">
+      ${prices.new.toLocaleString()} دج
+    </span>
+    
+    <!-- Badge réduction -->
+    <span class="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">
+      ${discount}%-
+    </span>
+
+  </div>
+`;
+
+
+                
+                option.appendChild(radio);
+                option.appendChild(label);
+                option.appendChild(price);
+                container.appendChild(option);
+            }
+        }
+
+        // Initialiser les options de livraison
+        function initDeliveryOptions() {
+            // Par défaut, livraison à domicile est déjà sélectionnée dans le HTML
+            // Ajouter l'événement onclick sur les options
+            document.querySelectorAll('.delivery-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const radio = this.querySelector('input[type="radio"]');
+                    if (radio) {
+                        // Retirer la classe selected de toutes les options
+                        document.querySelectorAll('.delivery-option').forEach(opt => {
+                            opt.classList.remove('selected');
+                        });
+                        // Ajouter la classe selected à l'option cliquée
+                        this.classList.add('selected');
+                        radio.checked = true;
+                        selectedDeliveryType = radio.value;
+                        toggleAddressFields();
+                        updatePriceSummary();
+                    }
+                });
+            });
+            
+            // Mettre à jour les prix affichés
+            document.getElementById('homeDeliveryPrice').textContent = `+${DEFAULT_DELIVERY_PRICES.home} دج`;
+            document.getElementById('deskDeliveryPrice').textContent = `+${DEFAULT_DELIVERY_PRICES.desk} دج`;
+        }
+
+        // Initialiser la liste des wilayas
+        function initWilayas() {
+            const wilayaSelect = document.getElementById('wilaya');
+            wilayaSelect.innerHTML = '<option value="" disabled selected>اختر ولايتك</option>';
+            
+            Object.keys(algeriaData).sort().forEach(wilaya => {
+                const option = document.createElement('option');
+                option.value = wilaya;
+                option.textContent = wilaya;
+                wilayaSelect.appendChild(option);
+            });
+        }
+
+        // Mettre à jour les prix de livraison selon la wilaya sélectionnée
+        function updateDeliveryPricesByWilaya() {
+            const wilayaSelect = document.getElementById('wilaya');
+            selectedWilaya = wilayaSelect.value;
+            
+            if (selectedWilaya) {
+                updateCommunes();
+                
+                // Obtenir les prix pour cette wilaya
+                const deliveryPrices = DELIVERY_PRICES_BY_WILAYA[selectedWilaya] || DEFAULT_DELIVERY_PRICES;
+                
+                // Mettre à jour l'affichage des prix
+                document.getElementById('homeDeliveryPrice').textContent = `+${deliveryPrices.home} دج`;
+                document.getElementById('deskDeliveryPrice').textContent = `+${deliveryPrices.desk} دج`;
+                
+                // Mettre à jour le résumé des prix
+                updatePriceSummary();
+            }
+        }
+
+        // Mettre à jour la liste des communes selon la wilaya sélectionnée
+        function updateCommunes() {
+            const wilayaSelect = document.getElementById('wilaya');
+            const communeSelect = document.getElementById('commune');
+            const selectedWilaya = wilayaSelect.value;
+            
+            communeSelect.innerHTML = '<option value="" disabled selected>اختر بلديتك</option>';
+            
+            if (selectedWilaya && algeriaData[selectedWilaya]) {
+                algeriaData[selectedWilaya].forEach(commune => {
+                    const option = document.createElement('option');
+                    option.value = commune;
+                    option.textContent = commune;
+                    communeSelect.appendChild(option);
+                });
+                communeSelect.disabled = false;
+            } else {
+                communeSelect.disabled = true;
+            }
+        }
+
+        // Basculer entre les champs d'adresse selon le type de livraison
+        function toggleAddressFields() {
+            const deliveryType = document.querySelector('input[name="deliveryType"]:checked');
+            const communeField = document.getElementById('communeField');
+            const addressField = document.getElementById('addressField');
+            const communeSelect = document.getElementById('commune');
+            const addressInput = document.getElementById('address');
+            
+            if (deliveryType) {
+                if (deliveryType.value === 'home') {
+                    // Pour livraison à domicile: wilaya, commune et adresse
+                    communeField.style.display = 'block';
+                    addressField.style.display = 'block';
+                    communeSelect.required = true;
+                    addressInput.required = true;
+                } else {
+                    // Pour bureau de poste: seulement wilaya
+                    communeField.style.display = 'none';
+                    addressField.style.display = 'none';
+                    communeSelect.required = false;
+                    addressInput.required = false;
+                    communeSelect.value = '';
+                    addressInput.value = '';
+                }
+            }
+        }
+
+       function updatePriceSummary() {
+    const priceObj = PRODUCT_PRICES[currentQuantity] || PRODUCT_PRICES[1];
+
+    const productPrice = priceObj.new;
+    const oldPrice = priceObj.old;
+
+    let deliveryPrice = 0;
+
+    // Calculer le prix de livraison
+    if (selectedDeliveryType) {
+        if (currentQuantity >= FREE_DELIVERY_THRESHOLD) {
+            deliveryPrice = 0;
+        } else {
+            let deliveryPrices;
+            if (selectedWilaya) {
+                deliveryPrices = DELIVERY_PRICES_BY_WILAYA[selectedWilaya] || DEFAULT_DELIVERY_PRICES;
+            } else {
+                deliveryPrices = DEFAULT_DELIVERY_PRICES;
+            }
+            deliveryPrice = deliveryPrices[selectedDeliveryType] || 0;
+        }
+    }
+
+    const totalPrice = productPrice + deliveryPrice;
+
+    // ===== Mise à jour affichage =====
+    document.getElementById('product-price').textContent = `${productPrice.toLocaleString()} دج`;
+    document.getElementById('delivery-price').textContent = `${deliveryPrice.toLocaleString()} دج`;
+    document.getElementById('total-price').textContent = `${totalPrice.toLocaleString()} دج`;
+
+    // Prix affiché dans la section principale
+    document.getElementById('currentPrice').textContent = `${productPrice.toLocaleString()} دج`;
+
+    // Prix barré (si présent)
+    const oldPriceEl = document.getElementById('oldPrice');
+    if (oldPriceEl) {
+        oldPriceEl.textContent = `${oldPrice.toLocaleString()} دج`;
+        oldPriceEl.classList.remove('hidden');
+    }
+
+    // ===== Mise à jour affichage livraison =====
+    let deliveryPrices;
+    if (selectedWilaya) {
+        deliveryPrices = DELIVERY_PRICES_BY_WILAYA[selectedWilaya] || DEFAULT_DELIVERY_PRICES;
+    } else {
+        deliveryPrices = DEFAULT_DELIVERY_PRICES;
+    }
+
+    if (currentQuantity >= FREE_DELIVERY_THRESHOLD) {
+        document.getElementById('homeDeliveryPrice').textContent = 'مجاني';
+        document.getElementById('deskDeliveryPrice').textContent = 'مجاني';
+        document.getElementById('homeDeliveryPrice').classList.add('text-green-600', 'font-bold');
+        document.getElementById('deskDeliveryPrice').classList.add('text-green-600', 'font-bold');
+    } else {
+        document.getElementById('homeDeliveryPrice').textContent = `+${deliveryPrices.home} دج`;
+        document.getElementById('deskDeliveryPrice').textContent = `+${deliveryPrices.desk} دج`;
+        document.getElementById('homeDeliveryPrice').classList.remove('text-green-600', 'font-bold');
+        document.getElementById('deskDeliveryPrice').classList.remove('text-green-600', 'font-bold');
+    }
+}
+
+
+        // Fonctions pour la galerie d'images
+        function changeImage(index) {
+            currentImageIndex = index;
+            document.getElementById('mainImage').src = images[index];
+            updateThumbnails();
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            changeImage(currentImageIndex);
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            changeImage(currentImageIndex);
+        }
+
+        function updateThumbnails() {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach((thumb, index) => {
+                if (index === currentImageIndex) {
+                    thumb.classList.add('active');
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialiser les événements de swipe
+        function initSwipeEvents() {
+            const mainImage = document.getElementById('mainImage');
+            let startX = 0;
+            
+            mainImage.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+            });
+            
+            mainImage.addEventListener('touchend', function(e) {
+                const endX = e.changedTouches[0].clientX;
+                const diffX = startX - endX;
+                
+                if (Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        nextImage();
+                    } else {
+                        prevImage();
+                    }
+                }
+            });
+        }
+
+        // Gestion de la soumission du formulaire
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validation des champs
+            const deliveryType = document.querySelector('input[name="deliveryType"]:checked');
+            const wilaya = document.getElementById('wilaya').value;
+            
+            if (!wilaya) {
+                alert('الرجاء اختيار الولاية');
+                return;
+            }
+            
+            if (!deliveryType) {
+                alert('الرجاء اختيار طريقة التوصيل');
+                return;
+            }
+            
+            if (deliveryType.value === 'home') {
+                const commune = document.getElementById('commune').value;
+                const address = document.getElementById('address').value;
+                
+                if (!commune || !address.trim()) {
+                    alert('الرجاء ملء جميع معلومات العنوان');
+                    return;
+                }
+            }
+            
+            // Calculer le prix total (CORRIGÉ)
+const priceObj = PRODUCT_PRICES[currentQuantity] || PRODUCT_PRICES[1];
+const productPrice = priceObj.new;
+
+let deliveryPrice = 0;
+if (selectedDeliveryType && currentQuantity < FREE_DELIVERY_THRESHOLD) {
+    let deliveryPrices;
+    if (selectedWilaya) {
+        deliveryPrices = DELIVERY_PRICES_BY_WILAYA[selectedWilaya] || DEFAULT_DELIVERY_PRICES;
+    } else {
+        deliveryPrices = DEFAULT_DELIVERY_PRICES;
+    }
+    deliveryPrice = deliveryPrices[selectedDeliveryType] || 0;
+}
+
+const totalPrice = productPrice + deliveryPrice;
+
+// Afficher la modal de confirmation
+document.getElementById('confirmationModal').classList.remove('hidden');
+
+// Données envoyées (PROPRES)
+console.log('Commande soumise:', {
+    nom: document.getElementById('fullName').value,
+    telephone: document.getElementById('phone').value,
+    quantite: currentQuantity,
+    typeLivraison: selectedDeliveryType,
+    wilaya: wilaya,
+    commune: selectedDeliveryType === 'home' ? document.getElementById('commune').value : '',
+    adresse: selectedDeliveryType === 'home' ? document.getElementById('address').value : '',
+    prixProduit: productPrice,
+    prixLivraison: deliveryPrice,
+    prixTotal: totalPrice
+});
+        });
+
+        // Fermer la modal de confirmation
+        function closeConfirmationModal() {
+            document.getElementById('confirmationModal').classList.add('hidden');
+            
+            // Réinitialiser les champs du formulaire sauf nom et téléphone
+            document.getElementById('wilaya').value = '';
+            document.getElementById('commune').value = '';
+            document.getElementById('address').value = '';
+            
+            // Réinitialiser les variables
+            currentQuantity = 1;
+            selectedWilaya = null;
+            
+            // Réinitialiser les sélections de quantité
+            document.querySelectorAll('.quantity-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            document.getElementById('quantityOption1').classList.add('selected');
+            
+            // Réinitialiser la sélection de livraison à domicile
+            document.querySelectorAll('.delivery-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            document.getElementById('homeDeliveryLabel').classList.add('selected');
+            document.querySelector('input[value="home"]').checked = true;
+            selectedDeliveryType = "home";
+            
+            // Réinitialiser l'affichage des prix
+            document.getElementById('homeDeliveryPrice').textContent = `+${DEFAULT_DELIVERY_PRICES.home} دج`;
+            document.getElementById('deskDeliveryPrice').textContent = `+${DEFAULT_DELIVERY_PRICES.desk} دج`;
+            document.getElementById('homeDeliveryPrice').classList.remove('text-green-600', 'font-bold');
+            document.getElementById('deskDeliveryPrice').classList.remove('text-green-600', 'font-bold');
+            
+            // Réinitialiser la liste des communes
+            const communeSelect = document.getElementById('commune');
+            communeSelect.innerHTML = '<option value="" disabled selected>اختر بلديتك</option>';
+            communeSelect.disabled = true;
+            
+            // Afficher les champs pour livraison à domicile
+            toggleAddressFields();
+            
+            updatePriceSummary();
+        }
+
+// URL de votre Web App Google Apps Script (à utiliser la même que vous avez déjà)
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzJ9Rgc-CwvLzrodcXKaZIHP73JBpkwyNIU23Ua1PTmq_3mhAmJjz5L30-6MYzULF5idg/exec';
+
+// Fonction pour envoyer les données à Google Sheets
+async function sendDataToGoogleSheets(formData) {
+    try {
+        const response = await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        return true;
+    } catch (error) {
+        console.error('Error:', error);
+        return false;
+    }
+}
+
+// Modifier la fonction de soumission du formulaire
+document.getElementById('orderForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Validation des champs
+    const deliveryType = document.querySelector('input[name="deliveryType"]:checked');
+    const wilaya = document.getElementById('wilaya').value;
+    
+    if (!wilaya) {
+        alert('الرجاء اختيار الولاية');
+        return;
+    }
+    
+    if (!deliveryType) {
+        alert('الرجاء اختيار طريقة التوصيل');
+        return;
+    }
+    
+    if (deliveryType.value === 'home') {
+        const commune = document.getElementById('commune').value;
+        const address = document.getElementById('address').value;
+        
+        if (!commune || !address.trim()) {
+            alert('الرجاء ملء جميع معلومات العنوان');
+            return;
+        }
+    }
+    
+   // Calculer les prix (CORRIGÉ)
+const priceObj = PRODUCT_PRICES[currentQuantity] || PRODUCT_PRICES[1];
+const productPrice = priceObj.new;
+
+let deliveryPrice = 0;
+if (selectedDeliveryType && currentQuantity < FREE_DELIVERY_THRESHOLD) {
+    let deliveryPrices;
+    if (selectedWilaya) {
+        deliveryPrices = DELIVERY_PRICES_BY_WILAYA[selectedWilaya] || DEFAULT_DELIVERY_PRICES;
+    } else {
+        deliveryPrices = DEFAULT_DELIVERY_PRICES;
+    }
+    deliveryPrice = deliveryPrices[selectedDeliveryType] || 0;
+}
+
+const totalPrice = productPrice + deliveryPrice;
+
+    
+    // Préparer les données dans le format que votre script attend
+    const formData = {
+        fullname: document.getElementById('fullName').value,
+        phone: document.getElementById('phone').value,
+        color: "ستانلس ستيل", // Produit fixe
+        size: "واحد", // Taille fixe
+        quantity: currentQuantity,
+        deliveryMethod: selectedDeliveryType === 'home' ? 'التوصيل إلى المنزل' : 'التوصيل إلى المكتب',
+        wilaya: wilaya,
+        commune: selectedDeliveryType === 'home' ? document.getElementById('commune').value : '',
+        product: "مجوهرات بيجو شيك",
+        productPrice: productPrice.toString(),
+        deliveryCost: deliveryPrice.toString(),
+        total: totalPrice.toString(),
+        address: selectedDeliveryType === 'home' ? document.getElementById('address').value : '' // Nouveau champ
+    };
+    
+    console.log('Données à envoyer:', formData);
+    
+    // Afficher le chargement
+    const submitButton = this.querySelector('button[type="submit"]');
+    const originalText = submitButton.innerHTML;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جارٍ الإرسال...';
+    submitButton.disabled = true;
+    
+    try {
+        // Envoyer les données à Google Sheets
+        const success = await sendDataToGoogleSheets(formData);
+        
+        setTimeout(() => {
+            if (success) {
+                // Afficher la modal de confirmation
+                document.getElementById('confirmationModal').classList.remove('hidden');
+                
+                // Réinitialiser le formulaire
+                this.reset();
+                
+                // Réinitialiser les sélections
+                currentQuantity = 1;
+                selectedDeliveryType = "home";
+                selectedWilaya = null;
+                
+                // Réinitialiser l'affichage des options
+                document.querySelectorAll('.quantity-option').forEach((opt, index) => {
+                    opt.classList.toggle('selected', index === 0);
+                });
+                document.querySelectorAll('.delivery-option').forEach((opt, index) => {
+                    opt.classList.toggle('selected', index === 0);
+                });
+                
+                // Réinitialiser les champs d'adresse
+                document.getElementById('wilaya').value = '';
+                document.getElementById('commune').value = '';
+                document.getElementById('address').value = '';
+                
+                // Mettre à jour les prix
+                updatePriceSummary();
+                
+            } else {
+                // Message d'erreur
+                alert('حدث خطأ أثناء تسجيل الطلب. يرجى المحاولة مرة أخرى أو الاتصال بنا مباشرة.');
+            }
+            
+            submitButton.innerHTML = originalText;
+            submitButton.disabled = false;
+            
+        }, 1500);
+        
+    } catch (error) {
+        console.error('Erreur:', error);
+        alert('حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.');
+        submitButton.innerHTML = originalText;
+        submitButton.disabled = false;
+    }
+});
+
+// envoi vers page de remerciment
+ document.getElementById("orderForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // empêche l'envoi automatique
+
+    let errorMessage = null;
+
+    // Nom complet
+    const fullName = document.getElementById("fullName");
+    if (!fullName.value.trim()) {
+        errorMessage = "الرجاء إدخال الاسم الكامل";
+    }
+
+    // Téléphone
+    const phone = document.getElementById("phone");
+    if (!errorMessage && !phone.value.trim()) {
+        errorMessage = "الرجاء إدخال رقم الهاتف";
+    }
+
+    // Wilaya
+    const wilaya = document.getElementById("wilaya");
+    if (!errorMessage && (!wilaya || wilaya.value === "")) {
+        errorMessage = "الرجاء اختيار الولاية";
+    }
+
+    // Type de livraison
+    const delivery = document.querySelector('input[name="deliveryType"]:checked');
+
+    // Commune et Adresse (uniquement si livraison à domicile)
+    if (!errorMessage && delivery && delivery.value === "home") {
+        const commune = document.getElementById("commune");
+        const address = document.getElementById("address");
+
+        if (!commune || commune.value === "") {
+            errorMessage = "الرجاء اختيار البلدية";
+        } else if (!address.value.trim()) {
+            errorMessage = "الرجاء إدخال العنوان بالتفصيل";
+        }
+    }
+
+    // Si erreur, afficher et arrêter
+    if (errorMessage) {
+        alert(errorMessage);
+        return;
+    }
+
+    /* ====== ENVOI GOOGLE SHEETS ====== */
+    // 👉 mets ici ton code existant
+    // sendToGoogleSheets(formData);
+
+    /* ====== REDIRECTION ====== */
+    setTimeout(function () {
+        window.location.href = 'remerciment.html';
+    }, 2000);
+});
+
+
+// Fonction pour fermer la modal de confirmation
+function closeConfirmationModal() {
+    document.getElementById('confirmationModal').classList.add('hidden');
+}
+
+// Liste des images
+  const images = [
+    "img/img1.png",
+    "img/img10.png",
+    "img/img3.png",
+    "img/img4.jpg",
+    "img/img5.jpg",
+    "img/img6.png",
+    "img/img7.png"
+  ];
+
+  let currentIndex = 0;
+  const mainImage = document.getElementById("mainImage");
+  const thumbnails = document.querySelectorAll(".thumbnail");
+
+  
+
+  // Fonction image précédente
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    mainImage.src = images[currentIndex];
+    updateActiveThumbnail();
+  }
+
+  // Fonction image suivante
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    mainImage.src = images[currentIndex];
+    updateActiveThumbnail();
+  }
+
+    // swiper image
+document.addEventListener("DOMContentLoaded", function () {
+    const mainImage = document.getElementById("mainImage");
+    const thumbnails = document.querySelectorAll(".thumbnail");
+
+    let currentIndex = 0;
+
+    // fonction pour mettre à jour image + vignette active
+    function updateImage(index) {
+        mainImage.src = thumbnails[index].src;
+        thumbnails.forEach(t => t.classList.remove("border-blue-500"));
+        thumbnails[index].classList.add("border-blue-500"); // vignette active
+        currentIndex = index;
+    }
+    // clic sur les miniatures
+    thumbnails.forEach((thumb, index) => {
+        thumb.addEventListener("click", function () {
+            updateImage(index);
+        });
+    });
+
+    // swipe sur mobile
+    let startX = 0;
+    mainImage.addEventListener("touchstart", function(e) {
+        startX = e.touches[0].clientX;
+    });
+
+    mainImage.addEventListener("touchend", function(e) {
+        let endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) {
+            // swipe gauche -> image suivante
+            updateImage((currentIndex + 1) % thumbnails.length);
+        } else if (endX - startX > 50) {
+            // swipe droite -> image précédente
+            updateImage((currentIndex - 1 + thumbnails.length) % thumbnails.length);
+        }
+    });
+
+    // défilement automatique toutes les 3s
+    setInterval(() => {
+        updateImage((currentIndex + 1) % thumbnails.length);
+    }, 3000);
+
+    // initialisation
+    updateImage(0); 
+});
+
+// Quand le DOM est prêt
+  document.addEventListener('DOMContentLoaded', () => {
+    const orderBtn = document.getElementById('order-btn');
+    const customerInfo = document.getElementById('order');
+
+    orderBtn.addEventListener('click', () => {
+      customerInfo.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+document.addEventListener("DOMContentLoaded", function () {
+    const stickyBtn = document.getElementById("stickyOrderBtn");
+    const orderBtn = document.getElementById("order-btn");
+    const priceSummary = document.getElementById("price-summary");
+
+    if (!stickyBtn) return;
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            const shouldHide = entries.some(entry => entry.isIntersecting);
+
+            if (shouldHide) {
+                stickyBtn.classList.add("opacity-0", "pointer-events-none");
+            } else {
+                stickyBtn.classList.remove("opacity-0", "pointer-events-none");
+            }
+        },
+        {
+            threshold: 0.3
+        }
+    );
+
+    if (orderBtn) observer.observe(orderBtn);
+    if (priceSummary) observer.observe(priceSummary);
+});
+
+// FAQ accordion
+const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Instructions pour modifier les prix
+        console.log(`
+=== INSTRUCTIONS POUR MODIFIER LES PRIX ===
+
+1. Pour modifier les prix des produits (lignes 242-248):
+   const PRODUCT_PRICES = {
+     1: 2900,   // Prix pour 1 pièce
+     2: 5800,   // Prix pour 2 pièces
+     3: 8073,   // Prix pour 3 pièces
+     4: 9568,   // Prix pour 4 pièces
+     5: 12000   // Prix pour 5 pièces
+   };
+
+2. Pour modifier les prix de livraison par défaut (lignes 252-253):
+   const DEFAULT_DELIVERY_PRICES = { home: 200, desk: 100 };
+
+3. Pour modifier les prix de livraison par wilaya (lignes 256-303):
+   Modifiez l'objet DELIVERY_PRICES_BY_WILAYA:
+   "Nom_Wilaya": { home: prix_domicile, desk: prix_bureau }
+
+4. Pour modifier le seuil de livraison gratuite (ligne 255):
+   const FREE_DELIVERY_THRESHOLD = 2; // Livraison gratuite à partir de 2 pièces
+
+5. Pour modifier les wilayas/communes (lignes 306-370):
+   Modifiez l'objet algeriaData selon vos besoins.
+        `);
+    </script>
+</body>
+</html>
